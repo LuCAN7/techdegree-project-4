@@ -3,8 +3,8 @@
  * Phrase.js */
 
  class Phrase {
-    constructor() {
-        const phrase = {};
+    constructor(phrase) {
+        this.phrase = phrase.toLowerCase();
         console.log('phrase');
     }
 

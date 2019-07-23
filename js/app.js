@@ -7,5 +7,9 @@ const keyRows = document.querySelector('.keyrow');
 startBtn.addEventListener('click', () =>{});
 keyRows.addEventListener('click', () =>{});
 
-const Game = new Game();
-console.log('app');
+// const game = new Game();
+
+const phrase = new Phrase('Life is like a box of chocolate');
+const game = new Game();
+console.log(`Phrase - phrase: ${phrase.phrase}`);
+

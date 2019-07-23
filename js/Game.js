@@ -4,16 +4,18 @@
 
  class Game {
      constructor() {
-
-        console.log('game');
-         
+        let missed = 0;
+        let phrases = [];
+        let activePhrase = null;
+    
     }
 
-    startGame(start) {
+    // startGame(start) {
 
-    };
-    endGame(end) {
+    // };
+    // endGame(end) {
 
 
-    };
+    // };
  }
+ 
