@@ -20,21 +20,14 @@
         return [phrase1, phrase2, phrase3, phrase4, phrase5];
     }
 
-    
-    
     getRandomPhrase() {
-        
-        // const randomItem = this.phrases.map((item)=> {
-        //     return item.phrase;
-        // })
-        // const phrase = randomItem[Math.floor(Math.random() * randomItem.length)];
-        // console.log(JSON.stringify(this.phrases));
+     
         const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];       
-        return phrase;
+        return phrase.phrase;
        
     }
     
-    // startGame();
+    startGame(){};
     // handleInteraction();
     // removeLife();
     // checkForWin();
@@ -43,25 +36,3 @@
 };
 
 
-// //  console.log(game.phrases);
-//         //  console.log(this.phrases);
-//         let randomPhrase = Math.floor(Math.random() * 5) + 1;
-//         // if( randomPhrase = )
-//         let pp = game.phrases.filter((phrase) => {
-//             return phrase.phrase;
-//         });
-       
-//         console.log(pp)
-        
-//         for (let i = 0; i < 5; i++) {
-//             // const element = array[i];
-            
-//             console.log(`Phrase ${i} - phrase: ${game.phrases[i].phrase}`);
-            
-//         }
-     
-//         // game.phrases.forEach((phrase, index) => {
-//         //     console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-//         // });
-//         // return phrase;
-    

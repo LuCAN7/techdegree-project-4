@@ -9,20 +9,14 @@
 
 
 const game = new Game();
-// const phrase = new Phrase();
+const phrase = new Phrase();
+
+// const randomPhrase = game.getRandomPhrase();
+// const phrase = new Phrase(randomPhrase.phrase);
+// phrase.addPhraseToDisplay();
 
 
-const logPhrase = (phrase) => {
-    console.log(`Phrase - phrase: `, phrase.phrase);
-};
-// game.getRandomPhrase();
-// console.log(game.getRandomPhrase());
 
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
-logPhrase(game.getRandomPhrase());
 
 
  
