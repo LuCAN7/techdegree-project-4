@@ -38,18 +38,18 @@
 
     handleInteraction(){
         const qwertyKeys = document.querySelectorAll('button.key');
-            
+        console.log(qwertyKeys) 
         qwertyKeys.forEach( (clickedKey) => {
-            clickedKey.addEventListener('click', (e) => {
-                let letter = clickedKey.innerHTML;
+            clickedKey.addEventListener('click', () => {
                 // letter is the String value Keyed-In
-                console.log(letter);
+                phrase.checkLetter(clickedKey.innerHTML);
+                // console.log(letter);
                 // Return String value of letter
-                return letter;
             }); 
+            // return letter;
               
         });
-        
+        // return letter; 
     }
   
     // removeLife();

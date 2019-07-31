@@ -36,23 +36,17 @@
         
     };
 
-
-
-    checkLetter(){
+    checkLetter(letter){
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
-        
         const word = game.activePhrase.split(''); 
-        const letter = game.handleInteraction();
-        console.log(word);
-        // console.log(letter);
-           
+        console.log(letter); 
         if( word.includes(letter) ){
             console.log("GREAT");
+            return letter;
             
         }      
-        return letter;
-                
+                    
     };
     
     // showMatchedLetter(letter){

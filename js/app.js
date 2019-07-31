@@ -10,8 +10,9 @@ startButton.addEventListener('click', (e) => {
     game = new Game();
     game.startGame();
     // console.log(`Active Phrase - phrase: ${game.activePhrase}`);
-    const letter = game.handleInteraction();
-    phrase.checkLetter(letter);
+    game.handleInteraction();
+   
+    // phrase.checkLetter();
         
 });
 
