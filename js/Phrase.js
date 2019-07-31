@@ -29,16 +29,39 @@
             placeholder.appendChild(letterBox);
         };
         
-        console.log('PHRASE:', phrase);
-        console.log('ARRAY:', lettersInPhrase);
-        console.log(letterBox);
-        console.log(placeholder);
+        // console.log('PHRASE:', phrase);
+        // console.log('ARRAY:', lettersInPhrase);
+        // console.log(letterBox);
+        // console.log(placeholder);
         
     };
 
 
 
-    // checkLetter();
-    // showMatchedLetter();
+    checkLetter(){
+        /*`checkLetter()`: Checks to see if the letter selected by the player 
+        matches a letter in the phrase.*/
+        
+        const word = game.activePhrase.split(''); 
+        const letter = game.handleInteraction();
+        console.log(word);
+        // console.log(letter);
+           
+        if( word.includes(letter) ){
+            console.log("GREAT");
+            
+        }      
+        return letter;
+                
+    };
+    
+    // showMatchedLetter(letter){
+    //     // letter = this.checkLetter();
+    //     // console.log(letter);
+    //         letter.classList.remove('hide','letter');
+    //         letter.classList.add('show');
+
+    //     return letter;
+    // };
 
  };

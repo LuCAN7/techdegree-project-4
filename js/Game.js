@@ -7,7 +7,7 @@
         this.missed = 0;
         this.phrases = this.createPhrases();
         // ['all dogs go to heaven','the few the proud the brave','live and learn','did i do that','love hurts'];
-        this.activePhrase = null;
+        this.activePhrase = this.getRandomPhrase();
     }
  
     createPhrases() {
@@ -27,8 +27,31 @@
        
     }
     
-    startGame(){};
-    // handleInteraction();
+    startGame(){
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = 'none';
+        this.getRandomPhrase();
+        // const phrase = new Phrase();
+        phrase.addPhraseToDisplay();
+        // return phrase.phrase;
+    };
+
+    handleInteraction(){
+        const qwertyKeys = document.querySelectorAll('button.key');
+            
+        qwertyKeys.forEach( (clickedKey) => {
+            clickedKey.addEventListener('click', (e) => {
+                let letter = clickedKey.innerHTML;
+                // letter is the String value Keyed-In
+                console.log(letter);
+                // Return String value of letter
+                return letter;
+            }); 
+              
+        });
+        
+    }
+  
     // removeLife();
     // checkForWin();
     // gameOver();

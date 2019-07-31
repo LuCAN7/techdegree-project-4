@@ -2,21 +2,22 @@
  * Project 4 - OOP Game App
  * app.js */
 
-// const startBtn = document.querySelector('.start');
-// const keyRows = document.querySelector('.keyrow');
-// startBtn.addEventListener('click', () =>{});
-// keyRows.addEventListener('click', () =>{});
-
-
-const game = new Game();
 const phrase = new Phrase();
 
+let game; 
+const startButton = document.querySelector('#btn__reset');
+startButton.addEventListener('click', (e) => {
+    game = new Game();
+    game.startGame();
+    // console.log(`Active Phrase - phrase: ${game.activePhrase}`);
+    const letter = game.handleInteraction();
+    phrase.checkLetter(letter);
+        
+});
+
+
 // const randomPhrase = game.getRandomPhrase();
-// const phrase = new Phrase(randomPhrase.phrase);
+// const phrase = new Phrase(randomPhrase);
 // phrase.addPhraseToDisplay();
 
-
-
-
-
- 
+// console.log(game.getRandomPhrase());
