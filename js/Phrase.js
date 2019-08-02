@@ -28,34 +28,32 @@
             }
             placeholder.appendChild(letterBox);
         };
-        
-        // console.log('PHRASE:', phrase);
-        // console.log('ARRAY:', lettersInPhrase);
-        // console.log(letterBox);
-        // console.log(placeholder);
-        
+              
     };
 
     checkLetter(letter){
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
         const word = game.activePhrase.split(''); 
-        console.log(letter); 
+        // console.log(letter); 
         if( word.includes(letter) ){
-            console.log("GREAT");
-            return letter;
-            
-        }      
-                    
+            // console.log("GREAT");
+            this.showMatchedLetter(letter);
+        }         
     };
     
-    // showMatchedLetter(letter){
-    //     // letter = this.checkLetter();
-    //     // console.log(letter);
-    //         letter.classList.remove('hide','letter');
-    //         letter.classList.add('show');
-
-    //     return letter;
-    // };
+    showMatchedLetter(letter){
+        const letterBoxes = document.querySelectorAll('.letter');
+        
+        for(let i = 0; i < letterBoxes.length; i++){
+            console.log( typeof letter);
+            if(letterBoxes[i].innerHTML === letter){
+                 
+                letterBoxes[i].classList.add('show');                                                                 
+                letterBoxes[i].classList.remove('hide');
+            }              
+        }
+     
+    };
 
  };
