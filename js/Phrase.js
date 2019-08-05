@@ -19,7 +19,7 @@
         for(let i = 0; i < lettersInPhrase.length; i++){
             letterBox = document.createElement('li');
             letterBox.append(lettersInPhrase[i]);
-            if( lettersInPhrase[i].includes(' ')){
+            if( lettersInPhrase[i].includes(' ') ){
                 letterBox.classList.remove('hide','letter');
                 letterBox.classList.add('space');                
             } else {
@@ -35,22 +35,28 @@
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
         const word = game.activePhrase.split(''); 
-        // console.log(letter); 
+       console.log(word);
         if( word.includes(letter) ){
             // console.log("GREAT");
             this.showMatchedLetter(letter);
-        }         
+        } else {
+            console.log(letter);
+            console.log('TRY AGAIN');
+        }      
     };
     
     showMatchedLetter(letter){
         const letterBoxes = document.querySelectorAll('.letter');
-        
+        // let guess = 0;
+        console.log(letter);
         for(let i = 0; i < letterBoxes.length; i++){
-            console.log( typeof letter);
+            
             if(letterBoxes[i].innerHTML === letter){
-                 
-                letterBoxes[i].classList.add('show');                                                                 
                 letterBoxes[i].classList.remove('hide');
+                letterBoxes[i].classList.add('show'); 
+                // guess++;                                                                
+                // game.checkForWin(guess);
+              
             }              
         }
      

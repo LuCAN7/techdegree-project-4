@@ -11,11 +11,11 @@
     }
  
     createPhrases() {
-        const phrase1 = new Phrase('all dogs go to heaven');
-        const phrase2 = new Phrase('the few the proud the brave');
-        const phrase3 = new Phrase('live and learn');
-        const phrase4 = new Phrase('love hurts');
-        const phrase5 = new Phrase('did i do that');
+        const phrase1 = new Phrase('better late than never');
+        const phrase2 = new Phrase('coffee code repeat');
+        const phrase3 = new Phrase('you live and learn');
+        const phrase4 = new Phrase('all or nothing');
+        const phrase5 = new Phrase('oops did i do that');
         
         return [phrase1, phrase2, phrase3, phrase4, phrase5];
     }
@@ -37,13 +37,13 @@
     };
 
     handleInteraction(){
-        const qwertyKeys = document.querySelectorAll('button.key');
+        const qwertyKeys = document.querySelectorAll('#qwerty');
         // const qwertyKeyz = document.querySelectorAll('.keyrow');
-        // console.log(qwertyKeys);
+        console.log(qwertyKeys);
         // console.log(qwertyKeyz);
-        qwertyKeys.forEach( (click) => {
+        qwertyKeys.forEach( (key) => {
             // console.log(clickedKey);
-            click.addEventListener('click', (e) => {
+            key.addEventListener('click', (e) => {
                 // letter is the String value Keyed-In
                 
                 phrase.checkLetter(e.target.innerHTML);
@@ -55,8 +55,21 @@
        
     }
   
+    // checkForWin(guess){
+    //     // phrase.showMatchedLetter()
+    //     // guess;
+    //     const letterBoxes = document.querySelectorAll('.letter');
+    //     // console.log(letterBoxes.length);
+    //     if(guess === letterBoxes.length){
+    //         console.log("YOU WINNN!!!!");
+    //         return true;
+    //     } else {
+    //         console.log("TRY AGAAAAIN!!!!");
+    //         return false;
+
+    //     }
+    // };
     // removeLife();
-    // checkForWin();
     // gameOver();
 
 };
