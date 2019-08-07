@@ -10,7 +10,10 @@
 
     addPhraseToDisplay(){
         let letterBox;
-        const phrase = game.getRandomPhrase();
+
+        const phrase = game.activePhrase.phrase;
+        console.log(typeof phrase);
+
         // Splits the phrase into an array of each character
         const lettersInPhrase = phrase.split("");
         const placeholder = document.querySelector('#phrase ul'); 
@@ -34,20 +37,22 @@
     checkLetter(letter){
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
-        const word = game.activePhrase.split(''); 
+        const word = game.activePhrase.phrase.split(''); 
        console.log(word);
         if( word.includes(letter) ){
-            // console.log("GREAT");
+            console.log("RIGHT");
             this.showMatchedLetter(letter);
+            return true;
         } else {
             console.log(letter);
-            console.log('TRY AGAIN');
+            console.log('WRONG');
+            return false;
         }      
     };
     
     showMatchedLetter(letter){
         const letterBoxes = document.querySelectorAll('.letter');
-        // let guess = 0;
+       
         console.log(letter);
         for(let i = 0; i < letterBoxes.length; i++){
             
@@ -61,5 +66,7 @@
         }
      
     };
+
+    
 
  };

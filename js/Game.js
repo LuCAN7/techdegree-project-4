@@ -6,8 +6,7 @@
      constructor() {
         this.missed = 0;
         this.phrases = this.createPhrases();
-        // ['all dogs go to heaven','the few the proud the brave','live and learn','did i do that','love hurts'];
-        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase = null;
     }
  
     createPhrases() {
@@ -23,54 +22,73 @@
     getRandomPhrase() {
      
         const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];       
-        return phrase.phrase;
-       
+        return phrase;
     }
     
     startGame(){
         const overlay = document.querySelector('#overlay');
         overlay.style.display = 'none';
-        this.getRandomPhrase();
+        // ****IMPORTANT LESSON*****//
+        this.activePhrase = this.getRandomPhrase();
+        
+        
         // const phrase = new Phrase();
         phrase.addPhraseToDisplay();
-        // return phrase.phrase;
+        return phrase;
     };
 
     handleInteraction(){
-        const qwertyKeys = document.querySelectorAll('#qwerty');
-        // const qwertyKeyz = document.querySelectorAll('.keyrow');
+        const qwertyKeys = document.querySelectorAll('.keyrow');
         console.log(qwertyKeys);
-        // console.log(qwertyKeyz);
+        
         qwertyKeys.forEach( (key) => {
             // console.log(clickedKey);
             key.addEventListener('click', (e) => {
-                // letter is the String value Keyed-In
                 
+                // letter is the String value Keyed-In
                 phrase.checkLetter(e.target.innerHTML);
                 // phrase.checkLetter(clickedKey.innerHTML);
+                this.checkForWin(this.removeLife());
                                
             }); 
           
         });
+        
        
     }
   
-    // checkForWin(guess){
-    //     // phrase.showMatchedLetter()
-    //     // guess;
-    //     const letterBoxes = document.querySelectorAll('.letter');
-    //     // console.log(letterBoxes.length);
-    //     if(guess === letterBoxes.length){
-    //         console.log("YOU WINNN!!!!");
-    //         return true;
-    //     } else {
-    //         console.log("TRY AGAAAAIN!!!!");
-    //         return false;
+    checkForWin(){
+        
+        const correctBoxes = document.querySelectorAll('.show');
+        const letterBoxes = document.querySelectorAll('.letter');
+               
+        if(correctBoxes.length === letterBoxes.length){
+            console.log("YOU WINNN!!!!");
+            return true;
+        } else {
+            console.log("TRY AGAAAAIN!!!!");
+            this.missed++;
+            
+            if(this.missed === 5){
+                console.log("Game Over...");
+                // This method is called if game is over
+                // gameOver();
+            }
+            return false;
 
-    //     }
-    // };
-    // removeLife();
-    // gameOver();
+        }         
+    };
+
+    removeLife(){
+        const hearts = document.querySelector('li.tries img');
+        // let lost = '..\images\lostHeart.png';
+        
+        console.log(hearts);
+        hearts.setAttribute('src', '/images/lostHeart.png');
+    
+
+       
+    };
 
 };
 

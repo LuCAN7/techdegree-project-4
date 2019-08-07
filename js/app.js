@@ -2,11 +2,12 @@
  * Project 4 - OOP Game App
  * app.js */
 
-const phrase = new Phrase();
 
 let game; 
+let phrase;
 const startButton = document.querySelector('#btn__reset');
-startButton.addEventListener('click', (e) => {
+startButton.addEventListener('click', () => {
+    phrase = new Phrase();
     game = new Game();
     game.startGame();
     // console.log(`Active Phrase - phrase: ${game.activePhrase}`);
