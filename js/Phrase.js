@@ -12,7 +12,7 @@
         let letterBox;
 
         const phrase = game.activePhrase.phrase;
-        console.log(typeof phrase);
+        
 
         // Splits the phrase into an array of each character
         const lettersInPhrase = phrase.split("");
@@ -38,35 +38,29 @@
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
         const word = game.activePhrase.phrase.split(''); 
-       console.log(word);
+        console.log(word);
         if( word.includes(letter) ){
-            console.log("RIGHT");
-            this.showMatchedLetter(letter);
+            // console.log("RIGHT");
+            // this.showMatchedLetter(letter);
             return true;
         } else {
             console.log(letter);
-            console.log('WRONG');
+            // console.log('WRONG');
             return false;
         }      
     };
     
     showMatchedLetter(letter){
         const letterBoxes = document.querySelectorAll('.letter');
-       
-        console.log(letter);
+        // console.log(letter);
         for(let i = 0; i < letterBoxes.length; i++){
             
             if(letterBoxes[i].innerHTML === letter){
                 letterBoxes[i].classList.remove('hide');
-                letterBoxes[i].classList.add('show'); 
-                // guess++;                                                                
-                // game.checkForWin(guess);
-              
+                letterBoxes[i].classList.add('show');        
             }              
         }
      
     };
-
-    
 
  };
