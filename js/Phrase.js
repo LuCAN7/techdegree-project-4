@@ -10,10 +10,8 @@
 
     addPhraseToDisplay(){
         let letterBox;
-
         const phrase = game.activePhrase.phrase;
         
-
         // Splits the phrase into an array of each character
         const lettersInPhrase = phrase.split("");
         const placeholder = document.querySelector('#phrase ul'); 

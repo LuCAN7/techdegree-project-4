@@ -58,13 +58,11 @@ class Game {
                 }
                                
             }); 
-          
         });  
        
     }
   
-    checkForWin(){
-        
+    checkForWin(){        
         const correctBoxes = document.querySelectorAll('.show');
         const letterBoxes = document.querySelectorAll('.letter');
                
@@ -106,23 +104,22 @@ class Game {
         const overlay = document.querySelector('#overlay');
         const message = document.getElementById('game-over-message');
         
-        overlay.style.display = 'block';
-            
-        if(this.missed === 5){
-            overlay.classList.remove('start');
-            overlay.classList.add('lose');
-            message.innerText = "YOU LOSE! Better Luck Next Time!";
-            
-            this.resetGame();
-        } 
+        this.resetGame();
 
-        if(this.missed <= 4){ 
-            overlay.classList.remove('start');
+        if (this.missed <= 4){ 
             overlay.classList.add('win');
             message.innerText = "YOU WIN! Very Good!";
-            // location = window.location.reload(true);
-            this.resetGame();
+            overlay.style.display = 'block';
+
         }
+
+        if (this.missed === 5){ 
+            overlay.classList.add('lose');
+            message.innerText = "YOU LOSE! Better Luck Next Time!";
+            overlay.style.display = 'block';
+
+        } 
+      
     };
 
     resetGame(){
@@ -130,15 +127,16 @@ class Game {
         const placeholderLi = document.querySelectorAll('.letter');
         const qwertyKeys = document.querySelectorAll('.key');
         const hearts = document.querySelectorAll('li.tries img');
-
+        overlay.classList.remove('start', 'win', 'lose');
+      
         // Loops through each "LI" and removes all the phrase letters
         placeholderLi.forEach((li) => {
             li.parentNode.removeChild(li);
         });
         // Loops through each "qwertyKeys" and removes all classes
         qwertyKeys.forEach((key) => {
-            key.classList.remove('chosen');  
-            key.classList.remove('wrong');  
+            key.classList.remove('chosen', 'wrong');  
+            
             key.removeAttribute('disabled');
         }); 
        // Loops through each "" and removes all the phrase letters
