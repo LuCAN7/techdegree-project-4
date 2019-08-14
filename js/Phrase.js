@@ -8,13 +8,16 @@
         // .toLowerCase();     
     }
 
+/**
+* Display phrase on game board
+*/
     addPhraseToDisplay(){
-        let letterBox;
-        const phrase = game.activePhrase.phrase;
-        
+        const phrase = game.activePhrase.phrase; 
+        const placeholder = document.querySelector('#phrase ul'); 
         // Splits the phrase into an array of each character
         const lettersInPhrase = phrase.split("");
-        const placeholder = document.querySelector('#phrase ul'); 
+        let letterBox;
+
         // Loop through each letter/item in the array of letter and add classes
         // Also appends to placehoder 'DIV'
         for(let i = 0; i < lettersInPhrase.length; i++){
@@ -31,26 +34,32 @@
         };
               
     };
-
+/**
+* Checks if passed letter is in phrase
+* and param (string) letter - Letter to check
+*/
     checkLetter(letter){
         /*`checkLetter()`: Checks to see if the letter selected by the player 
         matches a letter in the phrase.*/
-        const word = game.activePhrase.phrase.split(''); 
-        console.log(word);
-        if( word.includes(letter) ){
-            // console.log("RIGHT");
-            // this.showMatchedLetter(letter);
+        const phraseLetters = game.activePhrase.phrase.split('');
+
+        // validates the phrase letters include in the new Array of letters
+        if( phraseLetters.includes(letter) ){
+            
             return true;
         } else {
-            console.log(letter);
-            // console.log('WRONG');
+          
             return false;
         }      
     };
     
+/**
+* Displays passed letter on screen after a match is found
+* and param (string) letter - Letter to display
+*/ 
     showMatchedLetter(letter){
         const letterBoxes = document.querySelectorAll('.letter');
-        // console.log(letter);
+        
         for(let i = 0; i < letterBoxes.length; i++){
             
             if(letterBoxes[i].innerHTML === letter){
