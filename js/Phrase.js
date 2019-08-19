@@ -6,7 +6,7 @@
     constructor(phrase) {
         this.phrase = phrase;
         // .toLowerCase();     
-    }
+    };
 
 /**
 * Display phrase on game board
@@ -31,9 +31,9 @@
                 letterBox.classList.add('hide','letter',`${lettersInPhrase[i]}`);
             }
             placeholder.appendChild(letterBox);
-        };
-              
+        };              
     };
+    
 /**
 * Checks if passed letter is in phrase
 * and param (string) letter - Letter to check
@@ -66,8 +66,7 @@
                 letterBoxes[i].classList.remove('hide');
                 letterBoxes[i].classList.add('show');        
             }              
-        }
-     
+        };   
     };
 
  };

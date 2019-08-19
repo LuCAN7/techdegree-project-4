@@ -6,7 +6,7 @@ class Game {
         this.missed = 0;
         this.phrases = this.createPhrases();
         this.activePhrase = null;
-    }
+    };
 
 /**
 * Creates phrases for use in game
@@ -21,7 +21,7 @@ class Game {
         const phrase5 = new Phrase('oops did i do that');        
         
         return [phrase1, phrase2, phrase3, phrase4, phrase5];
-    }
+    };
 
 /**
 * Selects random phrase from phrases property
@@ -32,7 +32,7 @@ class Game {
         const phrase = this.phrases[Math.floor(Math.random() * this.phrases.length)];       
         
         return phrase;
-    }
+    };
     
 /**
 * Begins game by selecting a random phrase and displaying it to user
@@ -46,7 +46,7 @@ class Game {
         // ****IMPORTANT LESSON*****//
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-                
+         
         return phrase;
     };
 
@@ -54,34 +54,25 @@ class Game {
 * Handles game interactions by selecting 
 * listening to screen kyw clicks and checks for win or remove a life
 */
-    handleInteraction(){
-        const qwertyKeys = document.querySelectorAll('.key');
-            
-        qwertyKeys.forEach( (key) => {
-            // listen to key clicks and check if it is apart of the activePhrase
-            key.addEventListener('click', (e) => {
-                // letter is the String value Keyed-In
-                let letter = e.target.innerHTML;
-                this.activePhrase.checkLetter(letter);
-                console.log(this.activePhrase.checkLetter(letter));
-                console.log(this.activePhrase);
-                e.target.setAttribute('disabled', '');                
-                // Shows the matchedd letter with activePhrase
-                if(this.activePhrase.checkLetter(letter)){
-                    console.log(e.target)
-                    e.target.classList.add('chosen');  
-                    // Display the correct letter 
-                    this.activePhrase.showMatchedLetter(letter);    
-                    this.checkForWin();              
-                } else {                    
-                    e.target.classList.add('wrong');
-                    this.removeLife();
-                }
-                               
-            }); 
-        });  
+    handleInteraction(key){
        
-    }
+        // letter is the String value Keyed-In
+        let letter = key.innerHTML;
+        
+        this.activePhrase.checkLetter(letter);
+        key.setAttribute('disabled', '');                
+        // Shows the matchedd letter with activePhrase
+        if(this.activePhrase.checkLetter(letter)){
+        
+            key.classList.add('chosen');  
+            // Display the correct letter 
+            this.activePhrase.showMatchedLetter(letter);    
+            this.checkForWin();              
+        } else {                    
+            key.classList.add('wrong');
+            this.removeLife();
+        }            
+    };
 
 /**
 * Checks for winning move
@@ -111,9 +102,9 @@ won
 */
     removeLife(){
         const hearts = document.querySelectorAll('.tries img');
-
         // increment when checkedletter method is incorrect
         this.missed++;
+        // **ADVISED SHORTER** hearts[this.missed].src="images/lostHeart.png";
         // Loop through Hearts images and display lostHeart
         if( this.missed === 1 ){
             hearts[0].src = 'images/lostHeart.png';
@@ -127,8 +118,7 @@ won
             hearts[4].src = 'images/lostHeart.png';
             let gameWon = false;
             this.gameOver(gameWon);
-        } 
-        
+        }        
     };
 
 /**
@@ -141,27 +131,26 @@ resetGame(){
     const qwertyKeyes = document.querySelectorAll('.key');
     const hearts = document.querySelectorAll('.tries img');
  
-    // Loops through each "qwertyKeys" and removes all classes
+    // Loops through each "Key" and removes all classes
     qwertyKeyes.forEach((key) => {
         key.classList.remove('chosen', 'wrong');             
         key.removeAttribute('disabled');
     }); 
+
    // Loops through each "" and removes all the phrase letters
     hearts.forEach((heart) => {
-        // console.log(heart)
         heart.src = 'images/liveHeart.png';
-       
     });
    
     // Loops through each "LI" and removes all the phrase letters
     placeholderLi.forEach((li) => {
         li.parentNode.removeChild(li);
     });
-    // Remove empty spaces 
+
+    // Loops thorugh and remove empty spaces 
     placeholderSpaces.forEach((space) => {
         space.parentNode.removeChild(space);
     });
-
 }
 
 /**
@@ -171,9 +160,7 @@ resetGame(){
     gameOver(gameWon){
         const overlay = document.querySelector('#overlay');
         const message = document.querySelector('#game-over-message');
-        
-        console.log(gameWon);
-        
+              
          // If game is won in 5 misses add 'win' class and change display message.
         if (gameWon === true){ 
             // Calls resetGame method to reset game (display and phrase)
@@ -195,10 +182,6 @@ resetGame(){
             this.resetGame();
 
         } 
-      
-        
     };
-
-
  
 };
